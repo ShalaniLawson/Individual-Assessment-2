@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKS Delights- A Sweet Escape from the Ordinary</title>
+    <link rel="stylesheet" href=".\IA2Styles.css">
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+		<div class = "logo">
+		<img src= "..\Assets\logo_transparent.png" alt = "sks logo" class ="logo-sks" align = left>
+		</div>
+                <nav>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('cart')">Cart (<span id="cart-count">0</span>)</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn btn-primary" onclick="showPage('login')">Login</button>
+                    <button class="btn btn-primary" onclick="showPage('register')">Register</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Home Page -->
+            <div id="home" class="page active">
+                <h1 class="page-title">OUR SWEET TREATS</h1>
+                                
+                <div class="products-grid mt-2">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+			   <img img src= "..\Assets\CupcakesPic.png" alt = "Image not available" class = "product-image">
+			</div>
+                        <div class="product-details">
+                            <div class="product-name">Cupcakes</div>
+                            <div class="product-price">$200.00</div>
+                            <button class="btn btn-primary add-to-cart" onclick="addToCart(1, 'Cupcakes', 200.00)">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+			   <img src = "..\Assets\MacaronsPic.png" alt = "Image not available" class = "product-image">
+
+			</div>
+                        <div class="product-details">
+                            <div class="product-name">Macaron</div>
+                            <div class="product-price">$350.00</div>
+                            <button class="btn btn-primary add-to-cart" onclick="addToCart(2, 'Macaron', 350.00)">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+			   <img src = "..\Assets\DoughnutsPic.png" alt = "Image not available" class = "product-image">
+			</div>
+                        <div class="product-details">
+                            <div class="product-name">Doughnut</div>
+                            <div class="product-price">$250.00</div>
+                            <button class="btn btn-primary add-to-cart" onclick="addToCart(3, 'Doughnut', 250.00)">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+			   <img src = "..\Assets\CinnamonRollsPic.png" alt = "Image not available" class = "product-image"> 
+			</div>
+                        <div class="product-details">
+                            <div class="product-name">Cinnamon Roll</div>
+                            <div class="product-price">$400.00</div>
+                            <button class="btn btn-primary add-to-cart" onclick="addToCart(4, 'Cinnamon Rolls', 400.00)">Add to Cart</button>
+                        </div>
+                    </div>
+		    
+		    <div class="product-card">
+                        <div class="product-image">
+			   <img src = "..\Assets\CookiesPic.png" alt = "Image not available" class = "product-image"> 
+			</div>
+                        <div class="product-details">
+                            <div class="product-name">Chocolate Chip Cookie</div>
+                            <div class="product-price">$150.00</div>
+                            <button class="btn btn-primary add-to-cart" onclick="addToCart(5, 'Chocolate Chip Cookie', 150.00)">Add to Cart</button>
+                        </div>
+                    </div>
+		    <div class="product-card">
+                        <div class="product-image">
+			   <img src = "..\Assets\CheesecakeBars.jpg" alt = "Image not available" class = "product-image"> 
+			</div>
+                        <div class="product-details">
+                            <div class="product-name">Cheesecake Bar</div>
+                            <div class="product-price">$500.00</div>
+                            <button class="btn btn-primary add-to-cart" onclick="addToCart(5, 'Cheesecake Bar', 500.00)">Add to Cart</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- Login Page -->
+            <div id="login" class="page">
+                <h1 class="page-title">Login to Your Account</h1>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                    <p>Don't have an account? <a href="#" onclick="showPage('register')">Register here</a></p>
+                </form>
+            </div>
+            
+            <!-- Registration Page -->
+            <div id="register" class="page">
+                <h1 class="page-title">Create an Account</h1>
+                <form id="register-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                    <p>Already have an account? <a href="#" onclick="showPage('login')">Login here</a></p>
+                </form>
+            </div>
+            
+            <!-- Cart Page -->
+            <div id="cart" class="page">
+                <h1 class="page-title">Your Shopping Cart</h1>
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- Cart items will be populated by JavaScript -->
+                    </tbody>
+                </table>
+                <div id="cart-summary">
+                    <table>
+                        <tr>
+                            <td>Subtotal:</td>
+                            <td id="cart-subtotal">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td>GCT (15%):</td>
+                            <td id="cart-tax">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Discount:</td>
+                            <td id="cart-discount">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total:</strong></td>
+                            <td id="cart-total"><strong>$0.00</strong></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="cart-actions">
+		    <button class="btn btn-confirm" onclick="showPage('checkout')">Check Out</button>
+                    <button class="btn btn-cancel" onclick="clearCart()">Clear All</button>
+                    <button class="btn btn-cancel" onclick="showPage('home')">Close</button>
+                    
+                </div>
+            </div>
+            
+            <!-- Checkout Page -->
+            <div id="checkout" class="page">
+                <h1 class="page-title">Checkout</h1>
+                <div class="form-row">
+                    <div class="form-group">
+                        <h2>Order Summary</h2>
+                        <table id="checkout-summary">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody id="checkout-items">
+                                <!-- Checkout items will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                        <div class="mt-1">
+                            <p><strong>Total: <span id="checkout-total">$0.00</span></strong></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h2>Shipping Details</h2>
+                        <form id="checkout-form">
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input type="text" id="country" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="payment">Payment Amount</label>
+                                <input type="number" id="payment" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-confirm">Confirm Order</button>
+                                <button type="button" class="btn btn-cancel" onclick="showPage('cart')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Invoice Page -->
+            <div id="invoice" class="page">
+                <h1 class="page-title">Order Invoice</h1>
+                <div class="form-row">
+                    <div class="form-group">
+                        <h2>Order Details</h2>
+                        <p><strong>Order Date:</strong> <span id="invoice-date"></span></p>
+                        <p><strong>Order ID:</strong> <span id="invoice-id"></span></p>
+                    </div>
+                    <div class="form-group">
+                        <h2>Shipping Information</h2>
+                        <p id="invoice-shipping"></p>
+                    </div>
+                </div>
+                <table id="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoice-items">
+                        <!-- Invoice items will be populated by JavaScript -->
+                    </tbody>
+                </table>
+                <div class="mt-1">
+                    <table>
+                        <tr>
+                            <td>Subtotal:</td>
+                            <td id="invoice-subtotal">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td>GCT (15%):</td>
+                            <td id="invoice-tax">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Discount:</td>
+                            <td id="invoice-discount">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total:</strong></td>
+                            <td id="invoice-total"><strong>$0.00</strong></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn btn-primary" onclick="printInvoice()">Print Invoice</button>
+                    <button class="btn btn-cancel" onclick="showPage('home')">Back to Home</button>
+                </div>
+            </div>
+            
+            <!-- About Us Page -->
+            <div id="about" class="page">
+                <h1 class="page-title">About Us</h1>
+                <div class="form-row">            
+                        <h2 class="mt-2">Contact Information</h2>
+                        <p><strong>Full Name:</strong> Shalani Natini Lawson</p>
+                        <p><strong>ID No.:</strong> 2401118</p>
+                        <p><strong>Email:</strong> <a href="mailto:2401118@utech.edu.jm">2401118@utech.edu.jm</a></p>
+                        <p><strong>Module Code:</strong> CIT2011- Web Programming</p>
+                        <p><strong>Assignment Name:</strong> Individual Assignment #2</p>
+                        <p><strong>Day/Time of Class:</strong> Thursday, 6:00 P.M.</p>
+                        
+                        <p class="mt-2">Have questions or comments? <a href="mailto:1234567@utech.edu.jm">Send us an email</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SKS Delights.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        function updateCartCount() {
+            document.getElementById('cart-count').textContent = cart.reduce((total, item) => total + item.quantity, 0);
+        }
+        
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(`${name} added to cart!`);
+        }
+        
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            updateCartPage();
+        }
+        
+        function updateQuantity(id, change) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(id);
+                } else {
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCount();
+                    updateCartPage();
+                }
+            }
+        }
+        
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            updateCartPage();
+        }
+        
+        function updateCartPage() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemSubtotal = item.price * item.quantity;
+                subtotal += itemSubtotal;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>
+                        <button onclick="updateQuantity(${item.id}, -1)">-</button>
+                        ${item.quantity}
+                        <button onclick="updateQuantity(${item.id}, 1)">+</button>
+                    </td>
+                    <td>$${itemSubtotal.toFixed(2)}</td>
+                    <td><button class="btn btn-cancel" onclick="removeFromCart(${item.id})">Remove</button></td>
+                `;
+                cartItems.appendChild(row);
+            });
+            
+            const tax = subtotal * 0.15; // 15% tax
+            const discount = subtotal >= 2000 ? subtotal * 0.10 : 0; // 10% discount for orders over $2000
+            const total = subtotal + tax - discount;
+            
+            document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cart-tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('cart-discount').textContent = `$${discount.toFixed(2)}`;
+            document.getElementById('cart-total').innerHTML = `<strong>$${total.toFixed(2)}</strong>`;
+        }
+        
+        function updateCheckoutPage() {
+            const checkoutItems = document.getElementById('checkout-items');
+            checkoutItems.innerHTML = '';
+            
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemSubtotal = item.price * item.quantity;
+                subtotal += itemSubtotal;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${itemSubtotal.toFixed(2)}</td>
+                `;
+                checkoutItems.appendChild(row);
+            });
+            
+            const tax = subtotal * 0.15;
+            const discount = subtotal >= 2000 ? subtotal * 0.10 : 0;
+            const total = subtotal + tax - discount;
+            
+            document.getElementById('checkout-total').textContent = `$${total.toFixed(2)}`;
+            document.getElementById('payment').value = total.toFixed(2);
+        }
+        
+        function generateInvoice() {
+            const invoiceItems = document.getElementById('invoice-items');
+            invoiceItems.innerHTML = '';
+            
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemSubtotal = item.price * item.quantity;
+                subtotal += itemSubtotal;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${itemSubtotal.toFixed(2)}</td>
+                `;
+                invoiceItems.appendChild(row);
+            });
+            
+            const tax = subtotal * 0.15;
+            const discount = subtotal >= 2000 ? subtotal * 0.10 : 0;
+            const total = subtotal + tax - discount;
+            
+            document.getElementById('invoice-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('invoice-tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('invoice-discount').textContent = `$${discount.toFixed(2)}`;
+            document.getElementById('invoice-total').innerHTML = `<strong>$${total.toFixed(2)}</strong>`;
+            
+            document.getElementById('invoice-date').textContent = new Date().toLocaleDateString();
+            document.getElementById('invoice-id').textContent = 'INV-' + Math.floor(Math.random() * 1000000);
+            
+            const fullName = document.getElementById('full-name').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const country = document.getElementById('country').value;
+            
+            document.getElementById('invoice-shipping').innerHTML = `
+                ${fullName}<br>
+                ${address}<br>
+                ${city}, ${country}
+            `;
+        }
+        
+        function printInvoice() {
+            window.print();
+        }
+        
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.getElementById(pageId).classList.add('active');
+            
+            if (pageId === 'cart') {
+                updateCartPage();
+            } else if (pageId === 'checkout') {
+                updateCheckoutPage();
+            }
+        }
+	function downloadJSONReceipt(data) {
+    const jsonString = JSON.stringify(data, null, 4); 
+
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `receipt_${Date.now()}.json`;
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+        
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login Successful!');
+            showPage('home');
+        });
+        
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Registration successful!');
+            showPage('home');
+        });
+        
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            generateInvoice();
+	    const receipt = {
+        	invoice_id: document.getElementById('invoice-id').textContent,
+        	date: document.getElementById('invoice-date').textContent,
+        	customer: {
+            		name: document.getElementById('full-name').value,
+            		address: document.getElementById('address').value,
+            		city: document.getElementById('city').value,
+            		country: document.getElementById('country').value,
+        	},
+        	items: cart.map(item => ({
+           		id: item.id,
+            		name: item.name,
+            		price: item.price,
+            		quantity: item.quantity,
+            		subtotal: item.price * item.quantity
+        	})),
+        	amounts: {
+            		subtotal: parseFloat(document.getElementById('invoice-subtotal').textContent.replace('$', '')),
+            		tax: parseFloat(document.getElementById('invoice-tax').textContent.replace('$', '')),
+            		discount: parseFloat(document.getElementById('invoice-discount').textContent.replace('$', '')),
+            		total: parseFloat(document.getElementById('invoice-total').textContent.replace('$', ''))
+        	}
+    	};
+
+    		downloadJSONReceipt(receipt);
+            	clearCart();
+            	showPage('invoice');
+        	});
+        
+        updateCartCount();
+    </script>
+</body>
+</html>
